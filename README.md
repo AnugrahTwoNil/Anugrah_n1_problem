@@ -47,7 +47,7 @@ cd ~/Documents
 3. Clone repository, lalu masuk ke folder project. Ganti `<URL_REPOSITORY>` dengan URL repository yang diberikan guru:
 
 ```bash
-git clone <URL_REPOSITORY>
+git clone https://github.com/rapleeee/n1_problem.git
 cd tugas-n1-problem
 ```
 
