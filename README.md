@@ -35,19 +35,46 @@ Halaman latihan:
 
 Badge merah pada tiap halaman menunjukkan jumlah query yang dijalankan. Nilainya sengaja tinggi.
 
-## Persiapan
+## Clone dan Setup Project
 
-Jalankan perintah berikut dari root project:
+1. Buka aplikasi **Terminal**.
+2. Pindah ke folder tempat project akan disimpan, misalnya:
 
 ```bash
+cd ~/Documents
+```
+
+3. Clone repository, lalu masuk ke folder project. Ganti `<URL_REPOSITORY>` dengan URL repository yang diberikan guru:
+
+```bash
+git clone <URL_REPOSITORY>
+cd tugas-n1-problem
+```
+
+4. Salin file konfigurasi environment, buat database SQLite, install seluruh dependensi, lalu buat application key:
+
+```bash
+cp .env.example .env
+touch database/database.sqlite
 composer install
 npm install
+php artisan key:generate
+```
+
+5. Buat tabel database dan data latihan:
+
+```bash
 php artisan migrate:fresh --seed
+```
+
+6. Build aset frontend dan jalankan aplikasi:
+
+```bash
 npm run build
 php artisan serve
 ```
 
-Buka aplikasi pada alamat yang ditampilkan oleh Laravel, lalu akses halaman `/posts` dan `/posts-report`.
+Buka alamat yang ditampilkan oleh Laravel, lalu akses halaman `/posts` dan `/posts-report`.
 
 ## Laravel Debugbar
 
