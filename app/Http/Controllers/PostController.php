@@ -13,7 +13,7 @@ class PostController extends Controller
         DB::flushQueryLog();
         DB::enableQueryLog();
 
-        $posts = Post::query()->latest('published_at')->paginate(50);
+        $posts = Post::with('author')->latest('published_at')->paginate(50);
 
         $posts->each(function (Post $post): void {
             $post->author;
@@ -30,7 +30,7 @@ class PostController extends Controller
         DB::flushQueryLog();
         DB::enableQueryLog();
 
-        $posts = Post::query()->latest('published_at')->limit(200)->get();
+        $posts = Post::with(['author', 'category', 'tags', 'comments'])->latest('published_at')->limit(200)->get();
 
         $posts->each(function (Post $post): void {
             $post->author;
